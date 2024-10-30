@@ -15,7 +15,6 @@ const everydayTasks = [
     "Empty out water tray (dump into garbage)"
 ];
 
-// Array for leave tasks
 const leaveTasks = [
     "Turn off TVs",
     "Place any Membership forms in the drawer",
@@ -25,6 +24,16 @@ const leaveTasks = [
     "Clock out on Clover",
     "Lock drawer and return key"
 ];
+
+const tasks = {
+    "Mon": ["None"],
+    "Tue": ["Lubricate Treadmill", "Vacuum Gym", "Vacuum and Mop Bathrooms", "Clean Showers"],
+    "Wed": ["Lubricate Treadmill", "Vacuum and Mop Gym", "Vacuum and Mop Bathrooms", "Clean Toilets and Urinal"],
+    "Thu": ["Lubricate Treadmill", "Vacuum Gym", "Mop and Vacuum Bathrooms", "Remove Front Entrance Mats and Vacuum"],
+    "Fri": ["None"],
+    "Sat": ["Lubricate Treadmill", "Vacuum and Mop Gym", "Spot Clean Mirrors", "Mop and Vacuum Bathrooms", "Clean Toilets and Sinks", "Change Feminine Bag", "Change Urinal Cake"],
+    "Sun": ["Lubricate Treadmill", "Vacuum Gym", "Vacuum and Mop Bathrooms", "Clean Showers"]
+};
 
 // Function to create a checklist item
 function createChecklistItem(taskDescription, taskList) {
@@ -93,10 +102,10 @@ function updateTaskCount(taskList, counterId) {
     }
 }
 
-
 // DOM references for the task lists
 const everydayTasksList = document.querySelector('#everydayTasksList');
 const leaveTasksList = document.querySelector('#leaveTasksList');
+const todayTasksList = document.getElementById('todayTasksList');
 
 // Load tasks from arrays
 everydayTasks.forEach(task => {
@@ -124,3 +133,70 @@ function addNewTask(taskList) {
         updateTaskCount(taskList, taskList === everydayTasksList ? 'counterEveryday' : 'counterLeave'); // Update count after adding
     }
 }
+
+// Highlight the current day button
+const dayButtons = document.querySelectorAll('.day-btn');
+const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
+
+// Highlight the current day button based on today's day
+dayButtons.forEach(btn => {
+    if (btn.id.includes(today)) {
+        btn.classList.add('bg-blue-500', 'text-white');
+    }
+
+    // Event listener to change highlighted button and display tasks when clicked
+    btn.addEventListener('click', () => {
+        const day = btn.id.replace('btn-', '').toLowerCase();
+        loadTodayTasks(day);
+    });
+});
+
+// Function to load today's tasks
+function loadTodayTasks(day) {
+    todayTasksList.innerHTML = ''; // Clear previous tasks
+
+    const todayTasks = tasks[day.charAt(0).toUpperCase() + day.slice(1)] || [];
+    todayTasks.forEach(task => {
+        const { listItem } = createChecklistItem(task, todayTasksList);
+        todayTasksList.appendChild(listItem);
+    });
+    updateTaskCount(todayTasksList, 'counterToday');
+    setTodayTasksTitle(day.charAt(0).toUpperCase() + day.slice(1) + "'s Tasks");
+}
+
+// Initial load for today's tasks
+const initialDay = today.charAt(0).toUpperCase() + today.slice(1);
+loadTodayTasks(initialDay);
+
+// Add functionality to dynamically add a new task to today's tasks
+document.querySelector('#btn-addToday').addEventListener('click', () => addNewTask(todayTasksList));
+
+// Function to set today's task title dynamically with the day name
+function setTodayTasksTitle(title) {
+    const todayTasksTitle = document.getElementById('todayTasksTitle');
+    todayTasksTitle.textContent = title;
+}
+
+// Call the function on load to set the title for today's tasks
+setTodayTasksTitle(initialDay + "'s Tasks");
+
+// Function to highlight today's button based on the day of the week
+function highlightTodayButton() {
+    const dayButtons = {
+        0: 'btn-sun',
+        1: 'btn-mon',
+        2: 'btn-tue',
+        3: 'btn-wed',
+        4: 'btn-thu',
+        5: 'btn-fri',
+        6: 'btn-sat'
+    };
+    const today = new Date().getDay();
+    const todayButton = document.getElementById(dayButtons[today]);
+    if (todayButton) {
+        todayButton.classList.add('bg-green-500', 'text-white');
+    }
+}
+
+// Call this function on load to highlight the button
+highlightTodayButton();

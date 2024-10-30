@@ -17,9 +17,24 @@
 
     <div class="bg-white bg-opacity-90 rounded-md w-full  shadow-md py-10">
         <div class="items-center flex justify-center flex-col">
-            <h1 class="text-4xl font-bold text-center ">
-                Kettle Valley Fitness To Do List
-            </h1>
+            <div>
+                <h1 class="text-4xl font-bold text-center ">
+                    Kettle Valley Fitness To Do List
+                </h1>
+                <div>
+                    <!-- Buttons from Mon to sun -->
+                    <div class="flex flex-wrap justify-center space-x-5 my-5">
+                        <button id="btn-mon" class="btn">Mon</button>
+                        <button id="btn-tue" class="btn">Tue</button>
+                        <button id="btn-wed" class="btn">Wed</button>
+                        <button id="btn-thu" class="btn">Thu</button>
+                        <button id="btn-fri" class="btn">Fri</button>
+                        <button id="btn-sat" class="btn">Sat</button>
+                        <button id="btn-sun" class="btn">Sun</button>
+                    </div>
+                </div>
+            </div>
+
             <h1 class="text-2xl text-center my-5">
                 Since browsers alone cannot write directly to a file, you'll need to
                 <a class="text-blue-500 underline" href="README.md">write it manually</a> to the KVTList.js
@@ -34,7 +49,26 @@
             </a>
         </div>
 
+
         <div class="flex justify-center space-x-5 px-3 flex-wrap">
+            <!-- Today tasks -->
+            <div>
+                <div class="flex items-center justify-center space-x-5">
+                    <h1 id="todayTasksTitle" class="text-4xl text-center my-5">
+                        Today's Tasks
+                    </h1>
+                    <h1 id="counterToday" class="text-2xl font-bold px-2 py-1 bg-blue-500 text-white rounded-lg">0/0
+                    </h1>
+                    <!-- Counter for Today Tasks -->
+                    <h1 id="btn-addToday" class="text-2xl btn">+</h1>
+                </div>
+
+                <ul id="todayTasksList" class="space-y-2"> </ul>
+
+            </div>
+
+
+
             <div>
                 <div class="flex items-center justify-center space-x-5">
                     <h1 class="text-4xl text-center my-5">
@@ -48,9 +82,7 @@
 
                 <ul id="everydayTasksList" class="space-y-2"> </ul>
 
-                <p id="everyday-done" class="hidden text-green-600 font-semibold text-center mt-3">
-                    All tasks done for the day!
-                </p>
+
             </div>
 
             <div>
@@ -66,9 +98,7 @@
 
                 <ul id="leaveTasksList" class="space-y-2"></ul>
 
-                <p id="leave-done" class="hidden text-green-600 font-semibold text-center mt-3">
-                    You are good to Go!
-                </p>
+
             </div>
         </div>
 
