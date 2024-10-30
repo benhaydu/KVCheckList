@@ -26,13 +26,45 @@ const leaveTasks = [
 ];
 
 const tasks = {
-    "Mon": ["None"],
-    "Tue": ["Lubricate Treadmill", "Vacuum Gym", "Vacuum and Mop Bathrooms", "Clean Showers"],
-    "Wed": ["Lubricate Treadmill", "Vacuum and Mop Gym", "Vacuum and Mop Bathrooms", "Clean Toilets and Urinal"],
-    "Thu": ["Lubricate Treadmill", "Vacuum Gym", "Mop and Vacuum Bathrooms", "Remove Front Entrance Mats and Vacuum"],
-    "Fri": ["None"],
-    "Sat": ["Lubricate Treadmill", "Vacuum and Mop Gym", "Spot Clean Mirrors", "Mop and Vacuum Bathrooms", "Clean Toilets and Sinks", "Change Feminine Bag", "Change Urinal Cake"],
-    "Sun": ["Lubricate Treadmill", "Vacuum Gym", "Vacuum and Mop Bathrooms", "Clean Showers"]
+    "Mon": [
+        "None"
+    ],
+    "Tue": [
+        "Lubricate Treadmill",
+        "Vacuum Gym",
+        "Vacuum and Mop Bathrooms",
+        "Clean Showers"
+    ],
+    "Wed": [
+        "Lubricate Treadmill",
+        "Vacuum and Mop Gym",
+        "Vacuum and Mop Bathrooms",
+        "Clean Toilets and Urinal"
+    ],
+    "Thu": [
+        "Lubricate Treadmill",
+        "Vacuum Gym",
+        "Mop and Vacuum Bathrooms",
+        "Remove Front Entrance Mats and Vacuum"
+    ],
+    "Fri": [
+        "None"
+    ],
+    "Sat": [
+        "Lubricate Treadmill",
+        "Vacuum and Mop Gym",
+        "Spot Clean Mirrors",
+        "Mop and Vacuum Bathrooms",
+        "Clean Toilets and Sinks",
+        "Change Feminine Bag",
+        "Change Urinal Cake"
+    ],
+    "Sun": [
+        "Lubricate Treadmill",
+        "Vacuum Gym",
+        "Vacuum and Mop Bathrooms",
+        "Clean Showers"
+    ]
 };
 
 // Function to create a checklist item
