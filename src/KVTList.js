@@ -109,16 +109,18 @@ function updateTaskTextStyle(checkbox, taskText, taskList, listItem, originalInd
         taskText.classList.remove('line-through', 'opacity-50'); // Remove classes if unchecked
         taskList.insertBefore(listItem, taskList.children[originalIndex]); // Move back to original position
     }
-    updateTaskCount(taskList, taskList === everydayTasksList ? 'counterEveryday' : 'counterLeave'); // Update count
+    updateTaskCount(taskList); // Update count
 }
 
 // Function to update the task count display
-function updateTaskCount(taskList, counterId) {
+function updateTaskCount(taskList) {
     const totalTasks = taskList.children.length; // Get the current number of tasks
     const completedTasks = Array.from(taskList.children).filter(item => item.querySelector('input').checked).length; // Count completed tasks
 
     // Get the counter element
-    const counterElement = document.getElementById(counterId);
+    const counterElement = taskList.id === 'everydayTasksList' ? document.getElementById('counterEveryday') :
+        taskList.id === 'leaveTasksList' ? document.getElementById('counterLeave') :
+            document.getElementById('counterToday');
 
     // Update the counter display
     counterElement.textContent = `${completedTasks}/${totalTasks}`;
@@ -144,13 +146,13 @@ everydayTasks.forEach(task => {
     const { listItem, originalIndex } = createChecklistItem(task, everydayTasksList);
     everydayTasksList.appendChild(listItem);
 });
-updateTaskCount(everydayTasksList, 'counterEveryday'); // Update the count initially
+updateTaskCount(everydayTasksList); // Update the count initially
 
 leaveTasks.forEach(task => {
     const { listItem, originalIndex } = createChecklistItem(task, leaveTasksList);
     leaveTasksList.appendChild(listItem);
 });
-updateTaskCount(leaveTasksList, 'counterLeave'); // Update the count initially
+updateTaskCount(leaveTasksList); // Update the count initially
 
 // Add button functionality
 document.querySelector('#btn-addEveryday').addEventListener('click', () => addNewTask(everydayTasksList));
@@ -162,7 +164,7 @@ function addNewTask(taskList) {
     if (newTask) {
         const { listItem, originalIndex } = createChecklistItem(newTask, taskList);
         taskList.appendChild(listItem);
-        updateTaskCount(taskList, taskList === everydayTasksList ? 'counterEveryday' : 'counterLeave'); // Update count after adding
+        updateTaskCount(taskList); // Update count after adding
     }
 }
 
@@ -192,7 +194,7 @@ function loadTodayTasks(day) {
         const { listItem } = createChecklistItem(task, todayTasksList);
         todayTasksList.appendChild(listItem);
     });
-    updateTaskCount(todayTasksList, 'counterToday');
+    updateTaskCount(todayTasksList);
     setTodayTasksTitle(day.charAt(0).toUpperCase() + day.slice(1) + "'s Tasks");
 }
 
