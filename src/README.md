@@ -1,5 +1,11 @@
 # Checklist for Kettle Valley Fitness
 
+To use the checklist, please follow these steps
+
+1. Open the KVTListPage.html file with a web browser like Google Chrome or Microsoft Edge
+
+You can right click on the file and select "Open with" and choose a web browser
+
 To add to the checklist, please follow these steps
 
 1. Open the KVTList.js file
