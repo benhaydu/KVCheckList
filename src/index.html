@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KV Fitness To Do List</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-b from-black to-gray-500 text-gray-800 flex flex-col items-center min-h-screen p-5">
+
+    <div class="mb-4">
+        <img src="logo.png" alt="KV Fitness Logo" class="w-92 h-92 rounded-xl">
+    </div>
+
+    <div class="bg-white bg-opacity-90 rounded-md w-full  shadow-md py-10">
+        <div>
+            <h1 class="text-4xl font-bold text-center ">
+                Kettle Valley Fitness To Do List
+            </h1>
+            <h1 class="text-2xl text-center my-5">
+                Since browsers alone cannot write directly to a file, you'll need to
+                write it manually to the KVTList.js
+                <br><br>
+                Contact <span class="text-white bg-slate-600 p-2 rounded-lg">Ben Haydu</span> for more information
+                on how to do
+                this.
+            </h1>
+
+        </div>
+
+        <div class="flex justify-center space-x-5 px-3 flex-wrap">
+            <div>
+                <div class="flex items-center justify-center space-x-5">
+                    <h1 class="text-4xl text-center my-5">
+                        Everyday Tasks
+                    </h1>
+                    <h1 id="counterEveryday" class="text-2xl font-bold px-2 py-1 bg-blue-500 text-white rounded-lg">0/0
+                    </h1>
+                    <!-- Counter for Everyday Tasks -->
+                    <h1 id="btn-addEveryday" class="text-2xl btn">+</h1>
+                </div>
+
+                <ul id="everydayTasksList" class="space-y-2"> </ul>
+
+                <p id="everyday-done" class="hidden text-green-600 font-semibold text-center mt-3">
+                    All tasks done for the day!
+                </p>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-center space-x-5">
+                    <h1 class="text-4xl text-center my-5">
+                        Tasks before you leave
+                    </h1>
+                    <h1 id="counterLeave" class="text-2xl font-bold px-2 py-1 bg-blue-500 text-white rounded-lg">0/0
+                    </h1>
+                    <!-- Counter for Leave Tasks -->
+                    <h1 id="btn-addBeforeLeave" class="text-2xl btn">+</h1>
+                </div>
+
+                <ul id="leaveTasksList" class="space-y-2"></ul>
+
+                <p id="leave-done" class="hidden text-green-600 font-semibold text-center mt-3">
+                    You are good to Go!
+                </p>
+            </div>
+        </div>
+
+        <h1 class="text-5xl text-center mt-8">
+            &rarr; Lastly, make sure <span class="text-red-500">the front doors are locked</span> before you leave!
+        </h1>
+    </div>
+
+    <script src="KVTList.js"></script>
+</body>
+
+</html>
