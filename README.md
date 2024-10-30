@@ -18,6 +18,8 @@ To delete a task, simply delete the task from the list but make sure that the la
 
 Type in: "YOUR TASK HERE", to a new line. Do not forget the comma at the end of each task excluding the last.
 
+Example:
+
 ```javascript
 
 // Array for everyday tasks
@@ -34,7 +36,8 @@ const everydayTasks = [
     "Refill toilet paper",
     "Refill soap",
     "Vacuum lobby and floor mats",
-    "Empty out water tray (dump into garbage)"
+    "Empty out water tray (dump into garbage)",
+    "NEW TASK HERE"
 ];
 
 const leaveTasks = [
@@ -44,30 +47,35 @@ const leaveTasks = [
     "Fill out daily log",
     "Turn off monitors *DO NOT TURN OFF COMPUTER*",
     "Clock out on Clover",
-    "Lock drawer and return key"
+    "Lock drawer and return key",
+    "NEW TASK HERE"
 ];
 
 const tasks = {
     "Mon": [
-        "None"
+        "None",
+        "NEW TASK HERE"
     ],
     "Tue": [
         "Lubricate Treadmill",
         "Vacuum Gym",
         "Vacuum and Mop Bathrooms",
-        "Clean Showers"
+        "Clean Showers",
+        "NEW TASK HERE"
     ],
     "Wed": [
         "Lubricate Treadmill",
         "Vacuum and Mop Gym",
         "Vacuum and Mop Bathrooms",
-        "Clean Toilets and Urinal"
+        "Clean Toilets and Urinal",
+        "NEW TASK HERE"
     ],
     "Thu": [
         "Lubricate Treadmill",
         "Vacuum Gym",
         "Mop and Vacuum Bathrooms",
-        "Remove Front Entrance Mats and Vacuum"
+        "Remove Front Entrance Mats and Vacuum",
+        "NEW TASK HERE"
     ],
     "Fri": [
         "None"
@@ -79,13 +87,15 @@ const tasks = {
         "Mop and Vacuum Bathrooms",
         "Clean Toilets and Sinks",
         "Change Feminine Bag",
-        "Change Urinal Cake"
+        "Change Urinal Cake",
+        "NEW TASK HERE"
     ],
     "Sun": [
         "Lubricate Treadmill",
         "Vacuum Gym",
         "Vacuum and Mop Bathrooms",
-        "Clean Showers"
+        "Clean Showers",
+        "NEW TASK HERE"
     ]
 };
 
